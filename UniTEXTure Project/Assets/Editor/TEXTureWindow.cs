@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace Editor
 {
@@ -9,13 +10,8 @@ namespace Editor
         private string _expName = "";
         private int _seed;
         private Texture2D _texture;
-        private static GUIStyle GenerateButton = new GUIStyle("Button")
-        {
-            fontStyle = FontStyle.BoldAndItalic,
-            normal = { textColor = Color.gray },
-            hover = { textColor = Color.cyan },
-            active = { }
-        };
+        private Object _objFile;
+        private static GUIStyle GenerateButton;
 
         [MenuItem("UniTEXTure/Create")]
         private static void ShowWindow()
@@ -24,6 +20,14 @@ namespace Editor
             window.titleContent = new GUIContent("UniTEXTure Creator");
             window.minSize = new Vector2(400, 400);
             window.Show();
+
+            GenerateButton = new GUIStyle("Button")
+            {
+                fontStyle = FontStyle.BoldAndItalic,
+                normal = { textColor = Color.gray },
+                hover = { textColor = Color.cyan },
+                active = { }
+            };
         }
 
         private void OnGUI()
@@ -47,8 +51,14 @@ namespace Editor
             EditorGUI.LabelField(itemRect, filePath, new GUIStyle(EditorStyles.boldLabel) { });
             itemRect.y += itemRect.height + padding;
 
-            EditorGUI.BeginDisabledGroup(string.IsNullOrEmpty(_prompt));
-            if (GUI.Button(itemRect, "Generate New Texture", GenerateButton)) Generate();
+            _objFile = DrawObjectField(itemRect, "3D Model", "Select .obj File", _objFile, typeof(Object), false);
+            itemRect.y += itemRect.height + padding;
+
+            EditorGUI.BeginDisabledGroup(string.IsNullOrEmpty(_prompt) || string.IsNullOrEmpty(_expName) || _objFile == null || _seed < 0);
+            if (GUI.Button(itemRect, "Generate New Texture", GenerateButton))
+            {
+                Generate();
+            }
             EditorGUI.EndDisabledGroup();
         }
 
