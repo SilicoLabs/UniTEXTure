@@ -1,7 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Drawing.Printing;
+using System.IO;
+using System.Xml.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 namespace Editor
 {
@@ -11,7 +16,7 @@ namespace Editor
         private string _expName = "";
         private int _seed;
         private Texture2D _texture;
-        private Object _objFile;
+        private UnityEngine.Object _objFile;
         private static GUIStyle GenerateButton;
 
         [MenuItem("UniTEXTure/Create")]
@@ -82,12 +87,12 @@ namespace Editor
         }
 
         // Currently an unused function (has been replaced with SelectObject(string, string))
-        private Object DrawObjectField(Rect rect, string label, string tip, Object value, System.Type type, bool allowSceneObjects)
+        private UnityEngine.Object DrawObjectField(Rect rect, string label, string tip, UnityEngine.Object value, System.Type type, bool allowSceneObjects)
         {
             return EditorGUI.ObjectField(rect, new GUIContent(label, tip), value, type, allowSceneObjects);
         }
 
-        private Object SelectObject(string title, string type)
+        private UnityEngine.Object SelectObject(string title, string type)
         {
             string path = EditorUtility.OpenFilePanel(title, "", type);
 
@@ -105,13 +110,13 @@ namespace Editor
                     UnityEngine.Debug.LogError("Selected texture is not within the project folder. Try again.");
                 }
 
-                return AssetDatabase.LoadAssetAtPath<Object>(path);
+                return AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path);
             }
 
             return null;
         }
 
-        private void DisplayFilePath(Rect rect, Object obj)
+        private void DisplayFilePath(Rect rect, UnityEngine.Object obj)
         {
             string filePath = obj
                 ? $"{Application.dataPath}/{AssetDatabase.GetAssetPath(obj).Replace("Assets/", "")}"
@@ -124,6 +129,9 @@ namespace Editor
         {
             UnityEngine.Debug.Log("Generating New Texture");
 
+            string fileName = CreateYAML();
+
+
             // Error Checking
             if (_objFile == null || !IsObjFile(_objFile))
             {
@@ -133,7 +141,7 @@ namespace Editor
 
             string objFilePath = AssetDatabase.GetAssetPath(_objFile);
 
-            string pythonScriptPath = "C:\\Users\\bagli\\OneDrive\\Desktop\\test.py";
+            string pythonScriptPath = "\\..\\TEXTurePaper\\scripts\\run_texture.py";
 
             string command = $"python \"{pythonScriptPath}\" \"{_prompt}\" \"{_expName}\" {_seed} \"{objFilePath}\"";
 
@@ -166,7 +174,7 @@ namespace Editor
             UnityEngine.Debug.Log(output);
         }
 
-        private bool IsObjFile(Object obj)
+        private bool IsObjFile(UnityEngine.Object obj)
         {
             string assetPath = AssetDatabase.GetAssetPath(obj);
             if (string.IsNullOrEmpty(assetPath))
@@ -176,6 +184,44 @@ namespace Editor
 
             string extension = System.IO.Path.GetExtension(assetPath);
             return extension.Equals(".obj", System.StringComparison.OrdinalIgnoreCase);
+        }
+
+        private string CreateYAML()
+        {
+            string n = Environment.NewLine;
+
+            // Define the YAML content
+            string yamlContent =
+                "log:" + n +
+                    "\texp_name: " + _expName + n +
+
+                "guide:" + n +
+                    "\ttext: " + _prompt + n +
+                    ((_texture != null) ? "\tinital_texture: " + _texture.name + ".png" + n : "") +
+                    "\tshape_path: " + _objFile.name + ".obj" + n +
+
+                "optim:" + n +
+                    "\tseed: " + _seed + n;
+
+            // Write the YAML to a file
+            string fileName = _expName + ".yaml";
+
+            string relativePath = Path.Combine(
+                "..", // Go up one directory
+                "TEXTurePaper", // Navigate to the TEXTurePaper directory
+                "configs", // Navigate to the configs directory
+                "text_guided" // Navigate to the text_guided directory
+            );
+
+            UnityEngine.Debug.Log(relativePath);
+
+            string filePath = Path.Combine(relativePath, fileName);
+            filePath = filePath.Replace("\\", "/");
+            File.WriteAllText(filePath, yamlContent);
+
+            UnityEngine.Debug.Log("YAML file created: " + filePath);
+
+            return filePath;
         }
     }
 }
