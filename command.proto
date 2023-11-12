@@ -1,0 +1,9 @@
+syntax = "proto3";
+​
+package stimulus;
+​
+// The command message containing an ID and the type of stimulus
+message Command {
+  string run_path = "";
+  string config_path = "";
+}
