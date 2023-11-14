@@ -1,0 +1,10 @@
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\ProtoTest\obj\Debug\net7.0\ProtoTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\ProtoTest\obj\Debug\net7.0\ProtoTest.AssemblyInfoInputs.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\ProtoTest\obj\Debug\net7.0\ProtoTest.AssemblyInfo.cs
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\ProtoTest\obj\Debug\net7.0\ProtoTest.csproj.CoreCompileInputs.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\ProtoTest\obj\Debug\net7.0\ProtoTest.csproj.AssemblyReference.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\csharp_out\ProtoTest\obj\Debug\net7.0\ProtoTest.csproj.AssemblyReference.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\csharp_out\ProtoTest\obj\Debug\net7.0\ProtoTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\csharp_out\ProtoTest\obj\Debug\net7.0\ProtoTest.AssemblyInfoInputs.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\csharp_out\ProtoTest\obj\Debug\net7.0\ProtoTest.AssemblyInfo.cs
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP\csharp_out\ProtoTest\obj\Debug\net7.0\ProtoTest.csproj.CoreCompileInputs.cache

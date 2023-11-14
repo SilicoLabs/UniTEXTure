@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "OYUI10++Sw+bV3PALs1gjvNi5dlSBkO6D8a5ZqFj7c+0PW0cbhHgYHN+e2PBehZH9h8qw+JBnP/sfD7MS5Nhqg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bagli\\OneDrive\\Documents\\SilicoLabs\\UniTEXTure\\PCP\\csharp_out\\ProtoTest\\ProtoTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bagli\\.nuget\\packages\\google.protobuf\\3.25.0\\google.protobuf.3.25.0.nupkg.sha512"
+  ],
+  "logs": []
+}
