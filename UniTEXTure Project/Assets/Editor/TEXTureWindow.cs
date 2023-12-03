@@ -88,12 +88,6 @@ namespace Editor
             return EditorGUI.IntField(rect, new GUIContent(label, tip), value);
         }
 
-        // Currently an unused function (has been replaced with SelectObject(string, string))
-        private UnityEngine.Object DrawObjectField(Rect rect, string label, string tip, UnityEngine.Object value, System.Type type, bool allowSceneObjects)
-        {
-            return EditorGUI.ObjectField(rect, new GUIContent(label, tip), value, type, allowSceneObjects);
-        }
-
         private UnityEngine.Object SelectObject(string title, string type)
         {
             string path = EditorUtility.OpenFilePanel(title, "", type);
@@ -125,8 +119,7 @@ namespace Editor
                 : "No File Selected";
             EditorGUI.LabelField(rect, filePath);
         }
-
-
+        
         private void Generate()
         {
             UnityEngine.Debug.Log("Generating New Texture");
@@ -151,56 +144,11 @@ namespace Editor
                 // Send the serialized protobuf message to Python
                 stream.Write(bytes, 0, bytes.Length);
             }
-
-            // Error Checking
-            /*if (_objFile == null || !IsObjFile(_objFile))
-            {
-                UnityEngine.Debug.LogError("Please select a valid .obj file.");
-                return;
-            }
-
-            string objFilePath = AssetDatabase.GetAssetPath(_objFile);*/
-
-            // string pythonScriptPath = "\\..\\TEXTurePaper\\scripts\\run_texture.py";
-            // string pythonScriptPath = "\\..\\..\\..\\PCP\\python_communication_package.py";
-            //
-            // //string command = $"python \"{pythonScriptPath}\" \"{_prompt}\" \"{_expName}\" {_seed} \"{objFilePath}\"";
-            // string command = $"python \"{pythonScriptPath}\" --config_file \"{configFilePath}\"";
-            //
-            // UnityEngine.Debug.Log(command);
-
-            // Start a process to execute the Python script
-            /*ProcessStartInfo psi = new ProcessStartInfo
-            {
-                FileName = "cmd.exe",
-                RedirectStandardInput = true,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true,
-            };
-
-            Process process = new Process { StartInfo = psi };
-            process.Start();
-
-            // Pass the command to the command prompt
-            process.StandardInput.WriteLine(command);
-            process.StandardInput.Flush();
-            process.StandardInput.Close();
-
-            // Read the output of the Python script
-            string output = process.StandardOutput.ReadToEnd();
-
-            // Close the process
-            process.WaitForExit();
-            process.Close();
-
-            // Log the Python script's output
-            UnityEngine.Debug.Log(output);
-            UnityEngine.Debug.Log("WAS THERE ANY OUTPUT?");
-            Console.WriteLine(output);*/
-
+            
+            UnityEngine.Debug.Log("Texture generation request sent to Python server.");
         }
 
+        // Currently an unused function but checks whether the passed file is a .obj file
         private bool IsObjFile(UnityEngine.Object obj)
         {
             string assetPath = AssetDatabase.GetAssetPath(obj);
