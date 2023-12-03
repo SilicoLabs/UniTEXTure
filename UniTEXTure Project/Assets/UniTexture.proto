@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package Editor;
+
+message UniTexture {
+  string YamlPath = 1;
+}
