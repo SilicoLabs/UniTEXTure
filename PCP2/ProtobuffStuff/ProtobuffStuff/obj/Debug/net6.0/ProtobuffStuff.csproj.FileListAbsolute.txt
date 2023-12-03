@@ -1,0 +1,17 @@
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.csproj.AssemblyReference.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.AssemblyInfoInputs.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.AssemblyInfo.cs
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.csproj.CoreCompileInputs.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\bin\Debug\net6.0\ProtobuffStuff.exe
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\bin\Debug\net6.0\ProtobuffStuff.deps.json
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\bin\Debug\net6.0\ProtobuffStuff.runtimeconfig.json
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\bin\Debug\net6.0\ProtobuffStuff.dll
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\bin\Debug\net6.0\ProtobuffStuff.pdb
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.csproj.CopyComplete
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.dll
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\refint\ProtobuffStuff.dll
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.pdb
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ProtobuffStuff.genruntimeconfig.cache
+C:\Users\bagli\OneDrive\Documents\SilicoLabs\UniTEXTure\PCP2\ProtobuffStuff\ProtobuffStuff\obj\Debug\net6.0\ref\ProtobuffStuff.dll
