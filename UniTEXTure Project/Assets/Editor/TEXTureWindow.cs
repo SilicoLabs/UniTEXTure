@@ -7,6 +7,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
+using Google.Protobuf;
+using System.Net.Sockets;
 
 namespace Editor
 {
@@ -129,24 +131,46 @@ namespace Editor
         {
             UnityEngine.Debug.Log("Generating New Texture");
 
-            string fileName = CreateYAML();
+            string configFilePath = CreateYAML();
 
+            UniTexture message = new UniTexture {
+                YamlPath = configFilePath
+            };
+
+            byte[] bytes = message.ToByteArray();
+            
+            Console.WriteLine("Hello, World!");
+            
+            // Assume Python server is running on localhost, port 5555
+            string pythonServerAddress = "127.0.0.1";
+            int pythonServerPort = 5555;
+
+            using (TcpClient client = new TcpClient(pythonServerAddress, pythonServerPort))
+            using (NetworkStream stream = client.GetStream())
+            {
+                // Send the serialized protobuf message to Python
+                stream.Write(bytes, 0, bytes.Length);
+            }
 
             // Error Checking
-            if (_objFile == null || !IsObjFile(_objFile))
+            /*if (_objFile == null || !IsObjFile(_objFile))
             {
                 UnityEngine.Debug.LogError("Please select a valid .obj file.");
                 return;
             }
 
-            string objFilePath = AssetDatabase.GetAssetPath(_objFile);
+            string objFilePath = AssetDatabase.GetAssetPath(_objFile);*/
 
-            string pythonScriptPath = "\\..\\TEXTurePaper\\scripts\\run_texture.py";
-
-            string command = $"python \"{pythonScriptPath}\" \"{_prompt}\" \"{_expName}\" {_seed} \"{objFilePath}\"";
+            // string pythonScriptPath = "\\..\\TEXTurePaper\\scripts\\run_texture.py";
+            // string pythonScriptPath = "\\..\\..\\..\\PCP\\python_communication_package.py";
+            //
+            // //string command = $"python \"{pythonScriptPath}\" \"{_prompt}\" \"{_expName}\" {_seed} \"{objFilePath}\"";
+            // string command = $"python \"{pythonScriptPath}\" --config_file \"{configFilePath}\"";
+            //
+            // UnityEngine.Debug.Log(command);
 
             // Start a process to execute the Python script
-            ProcessStartInfo psi = new ProcessStartInfo
+            /*ProcessStartInfo psi = new ProcessStartInfo
             {
                 FileName = "cmd.exe",
                 RedirectStandardInput = true,
@@ -172,6 +196,9 @@ namespace Editor
 
             // Log the Python script's output
             UnityEngine.Debug.Log(output);
+            UnityEngine.Debug.Log("WAS THERE ANY OUTPUT?");
+            Console.WriteLine(output);*/
+
         }
 
         private bool IsObjFile(UnityEngine.Object obj)
