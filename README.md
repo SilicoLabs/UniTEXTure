@@ -11,7 +11,7 @@ An editor window in Unity that interacts with the TEXTure program to generate te
 
 Step-by-step instructions on setting up and running the program.ex
 
-### Step 1: Clone the Repository
+### Step 1: Clone the repository
 Navigate to the directory where you want the file saved and do:
 
 ```bash
