@@ -24,6 +24,8 @@ Navigate inside the UniTEXTure repository and if TEXTure is not already there, d
 git clone https://github.com/TEXTurePaper/TEXTurePaper.git
 ```
 
+**Note:** make sure all TEXTure requirements are also installed
+
 ## Running the Program
 
 ### Step 3: Run the python server
