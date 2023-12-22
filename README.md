@@ -6,6 +6,7 @@ An editor window in Unity that interacts with the TEXTure program to generate te
 
 - [TEXTure](https://github.com/TEXTurePaper/TEXTurePaper): A program for generating textures.
 - [ProtoBuf](https://protobuf.dev/): Protocol Buffers by Google.
+- [ngrok](https://ngrok.com/): Unified Ingress Platform  for developers
 
 ## Getting Started
 
