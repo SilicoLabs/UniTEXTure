@@ -27,7 +27,9 @@ git clone https://github.com/TEXTurePaper/TEXTurePaper.git
 ## Running the Program
 
 ### Step 3: Run the python server
-Navigate to `\UniTEXTure\UniTEXTure Project\Assets` and run `py_communication.py`. You should see `Server listening...`. If that doesn't appear, check your python version and packages to see if there are any updates.
+Navigate to your AWS instance and run `python py_communication.py`. You should see output information that the server is running. If that doesn't appear, check your python and flask version and packages to see if there are any updates.
+
+Next, run `ngrok http YOUR_PORT_NUM` to expose a secure tunnel to the internet so Unity can communicate with it.
 
 **Note:** we are currently using Python 3.11.5.
 
@@ -43,4 +45,4 @@ Once you have the texture generation window open, fill out the following:
 - **Input Texture *(optional)*:** a pre-existing texture that TEXTure can build off of. If not selected, it will generate a texture off of just the prompt.
 - **Object File:** This is the 3D model that is to be textured.
 
-Once you have filled out the form, click `Generate New Texture`. This will send the created `.yaml` file to the python server as a `ProtoBuf` object. It is received and passed to the TEXTure program for generation.
+Once you have filled out the form, click `Generate New Texture`. This will send the created `.proto` object to the python server. It is received and passed to the TEXTure program for generation. This may take a while (~15 minutes), but once the texture is generated, it is sent back to the requester and saved.
