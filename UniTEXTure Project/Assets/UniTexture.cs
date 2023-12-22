@@ -24,12 +24,14 @@ namespace Editor {
     static UniTextureReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBVbmlUZXh0dXJlLnByb3RvEgZFZGl0b3IiHgoKVW5pVGV4dHVyZRIQCghZ",
-            "YW1sUGF0aBgBIAEoCWIGcHJvdG8z"));
+            "ChBVbmlUZXh0dXJlLnByb3RvEgZFZGl0b3IiZAoKVW5pVGV4dHVyZRIQCghl",
+            "eHBfbmFtZRgBIAEoCRIOCgZwcm9tcHQYAiABKAkSDAoEc2VlZBgDIAEoBRIU",
+            "Cgxpbml0X3RleHR1cmUYBCABKAwSEAoIb2JqX2ZpbGUYBSABKAxiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Editor.UniTexture), global::Editor.UniTexture.Parser, new[]{ "YamlPath" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Editor.UniTexture), global::Editor.UniTexture.Parser, new[]{ "ExpName", "Prompt", "Seed", "InitTexture", "ObjFile" }, null, null, null, null)
           }));
     }
     #endregion
@@ -71,7 +73,11 @@ namespace Editor {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UniTexture(UniTexture other) : this() {
-      yamlPath_ = other.yamlPath_;
+      expName_ = other.expName_;
+      prompt_ = other.prompt_;
+      seed_ = other.seed_;
+      initTexture_ = other.initTexture_;
+      objFile_ = other.objFile_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -81,15 +87,63 @@ namespace Editor {
       return new UniTexture(this);
     }
 
-    /// <summary>Field number for the "YamlPath" field.</summary>
-    public const int YamlPathFieldNumber = 1;
-    private string yamlPath_ = "";
+    /// <summary>Field number for the "exp_name" field.</summary>
+    public const int ExpNameFieldNumber = 1;
+    private string expName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string YamlPath {
-      get { return yamlPath_; }
+    public string ExpName {
+      get { return expName_; }
       set {
-        yamlPath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        expName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "prompt" field.</summary>
+    public const int PromptFieldNumber = 2;
+    private string prompt_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Prompt {
+      get { return prompt_; }
+      set {
+        prompt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "seed" field.</summary>
+    public const int SeedFieldNumber = 3;
+    private int seed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Seed {
+      get { return seed_; }
+      set {
+        seed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "init_texture" field.</summary>
+    public const int InitTextureFieldNumber = 4;
+    private pb::ByteString initTexture_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString InitTexture {
+      get { return initTexture_; }
+      set {
+        initTexture_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "obj_file" field.</summary>
+    public const int ObjFileFieldNumber = 5;
+    private pb::ByteString objFile_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString ObjFile {
+      get { return objFile_; }
+      set {
+        objFile_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -108,7 +162,11 @@ namespace Editor {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (YamlPath != other.YamlPath) return false;
+      if (ExpName != other.ExpName) return false;
+      if (Prompt != other.Prompt) return false;
+      if (Seed != other.Seed) return false;
+      if (InitTexture != other.InitTexture) return false;
+      if (ObjFile != other.ObjFile) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -116,7 +174,11 @@ namespace Editor {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (YamlPath.Length != 0) hash ^= YamlPath.GetHashCode();
+      if (ExpName.Length != 0) hash ^= ExpName.GetHashCode();
+      if (Prompt.Length != 0) hash ^= Prompt.GetHashCode();
+      if (Seed != 0) hash ^= Seed.GetHashCode();
+      if (InitTexture.Length != 0) hash ^= InitTexture.GetHashCode();
+      if (ObjFile.Length != 0) hash ^= ObjFile.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -135,9 +197,25 @@ namespace Editor {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (YamlPath.Length != 0) {
+      if (ExpName.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(YamlPath);
+        output.WriteString(ExpName);
+      }
+      if (Prompt.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Prompt);
+      }
+      if (Seed != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Seed);
+      }
+      if (InitTexture.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(InitTexture);
+      }
+      if (ObjFile.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(ObjFile);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -149,9 +227,25 @@ namespace Editor {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (YamlPath.Length != 0) {
+      if (ExpName.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(YamlPath);
+        output.WriteString(ExpName);
+      }
+      if (Prompt.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Prompt);
+      }
+      if (Seed != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Seed);
+      }
+      if (InitTexture.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(InitTexture);
+      }
+      if (ObjFile.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(ObjFile);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -163,8 +257,20 @@ namespace Editor {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (YamlPath.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(YamlPath);
+      if (ExpName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ExpName);
+      }
+      if (Prompt.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Prompt);
+      }
+      if (Seed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Seed);
+      }
+      if (InitTexture.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(InitTexture);
+      }
+      if (ObjFile.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(ObjFile);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -178,8 +284,20 @@ namespace Editor {
       if (other == null) {
         return;
       }
-      if (other.YamlPath.Length != 0) {
-        YamlPath = other.YamlPath;
+      if (other.ExpName.Length != 0) {
+        ExpName = other.ExpName;
+      }
+      if (other.Prompt.Length != 0) {
+        Prompt = other.Prompt;
+      }
+      if (other.Seed != 0) {
+        Seed = other.Seed;
+      }
+      if (other.InitTexture.Length != 0) {
+        InitTexture = other.InitTexture;
+      }
+      if (other.ObjFile.Length != 0) {
+        ObjFile = other.ObjFile;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -197,7 +315,23 @@ namespace Editor {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            YamlPath = input.ReadString();
+            ExpName = input.ReadString();
+            break;
+          }
+          case 18: {
+            Prompt = input.ReadString();
+            break;
+          }
+          case 24: {
+            Seed = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            InitTexture = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            ObjFile = input.ReadBytes();
             break;
           }
         }
@@ -216,7 +350,23 @@ namespace Editor {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            YamlPath = input.ReadString();
+            ExpName = input.ReadString();
+            break;
+          }
+          case 18: {
+            Prompt = input.ReadString();
+            break;
+          }
+          case 24: {
+            Seed = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            InitTexture = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            ObjFile = input.ReadBytes();
             break;
           }
         }

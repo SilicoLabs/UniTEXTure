@@ -3,5 +3,9 @@ syntax = "proto3";
 package Editor;
 
 message UniTexture {
-  string YamlPath = 1;
+  string exp_name = 1;
+  string prompt = 2;
+  int32 seed = 3;
+  bytes init_texture = 4;
+  bytes obj_file = 5;
 }
